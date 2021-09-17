@@ -4,9 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-
 class UserRegistrationJTest {
     UserRegistrationJ userRegistration = new UserRegistrationJ();
+
     @Test
     public void givenFirstName_WhenProper_ShouldReturnTrue() {
         boolean result = userRegistration.firstName("Rajendra");
@@ -18,6 +18,7 @@ class UserRegistrationJTest {
         boolean result = userRegistration.firstName("rajendra");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenLastName_WhenProper_ShouldReturnTrue() {
         boolean result = userRegistration.lastName("Gund");
@@ -30,6 +31,7 @@ class UserRegistrationJTest {
         Assert.assertEquals(false, result);
 
     }
+
     @Test
     public void givenEmail_WhenProper_ShouldReturnTrue() {
         boolean result = userRegistration.email("rajendra11@gmail.com");
@@ -41,6 +43,7 @@ class UserRegistrationJTest {
         boolean result = userRegistration.email("rajendra&gund@gmail.com");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenPhoneNumber_WhenProper_ShouldReturnTrue() {
         boolean result = userRegistration.phoneNumber("91 9604315270");
@@ -52,14 +55,28 @@ class UserRegistrationJTest {
         boolean result = userRegistration.phoneNumber("919604315270");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenPassword_WhenProper_ShouldReturnTrue() {
         boolean result = userRegistration.password("rajendra@123");
         Assert.assertEquals(true, result);
     }
+
     @Test
     public void givenPassword_WhenNotProper_ShouldReturnFalse() {
         boolean result = userRegistration.password("raj@22");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenPasswordRule2_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.passwordRule2("passWord@123");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordRule2_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.passwordRule2("psw@");
         Assert.assertEquals(false, result);
     }
 
